@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tasfe.sis.base.dao.test.TmpUserDao">
+
+    <resultMap id="BaseResultMap" type="com.mobanker.hljns.dao.banks.zznsh.BiZznshOrderOutRpt">
+        <id column="id" jdbcType="BIGINT" property="id" />
+        <result column="batch_date" jdbcType="DATE" property="batchDate" />
+        <result column="user_id" jdbcType="VARCHAR" property="userId" />
+        <result column="borrow_nid" jdbcType="VARCHAR" property="borrowNid" />
+        <result column="renter" jdbcType="VARCHAR" property="renter" />
+        <result column="idCardNo" jdbcType="VARCHAR" property="idcardno" />
+        <result column="cellphone" jdbcType="VARCHAR" property="cellphone" />
+        <result column="homeAdr" jdbcType="VARCHAR" property="homeadr" />
+        <result column="iamount" jdbcType="DECIMAL" property="iamount" />
+        <result column="startDate" jdbcType="TIMESTAMP" property="startdate" />
+        <result column="expireDate" jdbcType="TIMESTAMP" property="expiredate" />
+        <result column="debitAccount" jdbcType="VARCHAR" property="debitaccount" />
+        <result column="loadAccount" jdbcType="VARCHAR" property="loadaccount" />
+        <result column="married" jdbcType="VARCHAR" property="married" />
+        <result column="period_days" jdbcType="INTEGER" property="periodDays" />
+        <result column="sign_id" jdbcType="VARCHAR" property="signId" />
+        <result column="agreement" jdbcType="VARCHAR" property="agreement" />
+        <result column="bill_no" jdbcType="VARCHAR" property="billNo" />
+        <result column="status" jdbcType="INTEGER" property="status" />
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+        <result column="order_summary_id" jdbcType="BIGINT" property="orderSummaryId" />
+        <result column="check_status" jdbcType="INTEGER" property="checkStatus" />
+    </resultMap>
+
+
+    <select id="countByExample" parameterType="com.tasfe.sis.order.dao.OrderExample" resultType="java.lang.Long">
+        select count(*) from bi_zznsh_order_out_rpt
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause" />
+        </if>
+    </select>
+
+    <select id="selectByExample" parameterType="com.tasfe.sis.order.dao.OrderExample" resultMap="BaseResultMap">
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        <include refid="Base_Column_List" />
+        from bi_zznsh_order_out_rpt
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause" />
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+        <if test="startRow != null and pageSize != null and pageSize != 0">
+            limit #{startRow},#{pageSize}
+        </if>
+    </select>
+
+</mapper>

@@ -1,0 +1,1 @@
+[14:26:19:473] [WARN] - org.hibernate.cache.ehcache.AbstractEhcacheRegionFactory.getCache(AbstractEhcacheRegionFactory.java:160) - HHH020003: Could not find a specific ehcache configuration for cache named [com.tasfe.sis.base.entity.File]; using defaults.

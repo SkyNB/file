@@ -1,0 +1,2 @@
+[11:31:46:294] [INFO] - com.alibaba.druid.pool.DruidDataSource.init(DruidDataSource.java:715) - {dataSource-1} inited
+[11:35:51:540] [INFO] - com.alibaba.druid.pool.DruidDataSource.close(DruidDataSource.java:1444) - {dataSource-1} closed

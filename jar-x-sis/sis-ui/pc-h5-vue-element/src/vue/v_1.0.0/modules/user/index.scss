@@ -1,0 +1,64 @@
+
+
+.order_list{
+  margin: 20px;
+}
+
+.row {
+  margin-top: 20px;
+  &.status{
+    text-align: right;
+    margin-top: 0;
+  }
+  .label{
+    font-size: 1.2em;
+    font-weight: bold;
+    float: left;
+  }
+  &:after{
+    content: ' ';
+    display: block;
+    clear: both;
+  }
+}
+
+.table{
+  margin-top: 20px;
+}
+
+.pagination{
+  margin-top: 20px;
+  text-align: right;
+}
+
+.order_detail_table{
+  table{
+    width: 100%;
+    border-color: #dfe6ec;
+    border-width: 1px;
+    td,th{
+      padding: 3px 5px;
+    }
+  }
+}
+
+.checkbox_status{
+  float: left;
+  margin-top: 15px;
+}
+
+.process_select{
+  width: 150px;
+  height: 36px;
+  border-radius: 4px;
+}
+
+.btn1{
+  margin-left: 12px;
+}
+
+.btn2{
+}
+.el-transfer-panel{
+  width:290px;
+}

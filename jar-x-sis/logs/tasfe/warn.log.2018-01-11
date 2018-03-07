@@ -1,0 +1,4 @@
+[10:46:51:689] [WARN] - com.alibaba.druid.pool.DruidDataSource.getConnectionDirect(DruidDataSource.java:1019) - not full timeout retry : 1
+[10:49:08:661] [WARN] - com.alibaba.druid.pool.DruidDataSource.getConnectionDirect(DruidDataSource.java:1019) - not full timeout retry : 1
+[11:48:56:540] [WARN] - com.alibaba.druid.pool.DruidDataSource.getConnectionDirect(DruidDataSource.java:1019) - not full timeout retry : 1
+[11:50:59:110] [WARN] - com.alibaba.druid.pool.DruidDataSource.getConnectionDirect(DruidDataSource.java:1019) - not full timeout retry : 1

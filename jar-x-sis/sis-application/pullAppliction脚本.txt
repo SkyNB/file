@@ -1,0 +1,23 @@
+1 编写pullApplication
+
+#!/bin/sh
+
+ts=`date +%s`
+ts=${ts}
+date '+%Y-%m-%d %H:%M:%S'
+echo "Pull task start... $ts"
+curl http://127.0.0.1:8282/sync/pullApplication
+echo ""
+echo "Pull task end... $ts"
+
+
+2 设置执行权限
+chmod u+x pullApplication
+
+
+3 crontab配置
+* * * * * root /root/pullApplication >> /root/pullApplication.log
+
+
+4 重启crontab
+service crond restart
