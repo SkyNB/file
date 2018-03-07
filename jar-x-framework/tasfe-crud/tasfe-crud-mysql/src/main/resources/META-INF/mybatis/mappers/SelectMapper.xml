@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="selecter">
+
+    <select id="_query" parameterType="map" resultType="hashmap">
+        <![CDATA[
+
+        SELECT
+        <foreach item="column" index="index" collection="columns" separator=",">
+            ${column}
+        </foreach>
+        FROM ${table}
+        <WHERE>
+            <if test="whereExp != null">
+                <foreach item="exp" index="index" collection="whereExp" separator=" ">
+                    ${exp}
+                </foreach>
+            </if>
+        </WHERE>
+
+        <if test="orderExp != null">
+            ORDER BY ${orderExp}
+        </if>
+
+        <if test="limit != null">
+            LIMIT #{limit.start},#{limit.offset}
+        </if>
+
+        ]]>
+    </select>
+
+    <select id="_get" parameterType="map" resultType="hashmap">
+        select
+        <foreach item="columnName" index="index" collection="_columns_" separator=",">
+            ${columnName}
+        </foreach>
+        from ${_table_}
+        where ${_pk_} = #{_pv_}
+    </select>
+
+
+    <select id="_list" parameterType="map" resultType="hashmap">
+        SELECT
+        <foreach item="column" index="index" collection="_columns_" separator="," >
+            ${column}
+        </foreach>
+        FROM ${_table_}
+        <where>
+            <if test="_pks_ != null">
+                <foreach item="pk" index="index" collection="_pks_" separator="or">
+                    id=${pk}
+                </foreach>
+            </if>
+        </where>
+    </select>
+
+
+    <select id="_find" parameterType="map" resultType="hashmap">
+        SELECT
+        <foreach item="column" index="index" collection="_columns_" separator="," >
+            ${column}
+        </foreach>
+        FROM ${_table_}
+        <where>
+            <if test="_where_exp_ != null">
+                ${_where_exp_}
+            </if>
+        </where>
+
+        <if test="_order_exp_ != null and _order_exp_.size > 0">
+            ORDER BY
+            <foreach item="order" index="index" collection="_order_exp_" separator=",">
+                ${order}
+            </foreach>
+        </if>
+
+        <if test="_limit_ != null">
+            LIMIT #{_limit_.start},#{_limit_.offset}
+        </if>
+    </select>
+
+    <!--<select id="_find" parameterType="map" resultType="hashmap">
+        select
+        <foreach item="columnName" index="index" collection="queryColumn" separator=",">
+            ${columnName}
+        </foreach>
+        from ${tableName}
+        <where>
+
+            <if test="pks != null">
+                <foreach item="pk" index="index" collection="pks" separator="or">
+                    id=${pk}
+                </foreach>
+            </if>
+
+            <if test="conditionExp != null">
+                ${conditionExp}
+            </if>
+
+            <if test="conditionParam != null">
+                <foreach item="column" index="index" collection="conditionParam" separator="and">
+                    ${index} = #{column}
+                </foreach>
+            </if>
+        </where>
+
+        <if test="orderExp != null">
+            order by ${orderExp}
+        </if>
+
+        <if test="page != null">
+            limit #{page.startRowNo},#{page.pageSize}
+        </if>
+    </select>-->
+
+
+</mapper>
